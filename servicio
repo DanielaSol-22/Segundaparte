@@ -1,0 +1,36 @@
+package com.banguat.api.service;
+
+import com.banguat.api.model.TipoCambioResponse;
+import jakarta.xml.bind.JAXBContext;
+import jakarta.xml.bind.JAXBException;
+import jakarta.xml.bind.Unmarshaller;
+import org.springframework.stereotype.Service;
+import java.io.StringReader;
+
+@Service
+public class TipoCambioService {
+
+    public TipoCambioResponse getTipoCambio(String fechaIni, int moneda) {
+        // Aquí iría la lógica para hacer la solicitud SOAP al Banco de Guatemala
+        // Simulación de una respuesta
+        String soapResponse = "<TipoCambioFechaInicialMonedaResponse>" +
+                "<moneda>02</moneda>" +
+                "<fecha>" + fechaIni + "</fecha>" +
+                "<venta>7.75</venta>" +
+                "<compra>7.65</compra>" +
+                "</TipoCambioFechaInicialMonedaResponse>";
+
+        return parseSoapResponse(soapResponse);
+    }
+
+    private TipoCambioResponse parseSoapResponse(String xmlResponse) {
+        try {
+            JAXBContext context = JAXBContext.newInstance(TipoCambioResponse.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            return (TipoCambioResponse) unmarshaller.unmarshal(new StringReader(xmlResponse));
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+}
