@@ -11,8 +11,7 @@ import java.io.StringReader;
 public class TipoCambioService {
 
     public TipoCambioResponse getTipoCambio(String fechaIni, int moneda) {
-        // Aquí iría la lógica para hacer la solicitud SOAP al Banco de Guatemala
-        // Simulación de una respuesta
+        //banco de guatemala
         String soapResponse = "<TipoCambioFechaInicialMonedaResponse>" +
                 "<moneda>02</moneda>" +
                 "<fecha>" + fechaIni + "</fecha>" +
