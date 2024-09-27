@@ -1,0 +1,49 @@
+package com.banguat.api.model;
+
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "TipoCambioFechaInicialMonedaResponse")
+public class TipoCambioResponse {
+
+    private String moneda;
+    private String fecha;
+    private float venta;
+    private float compra;
+
+    @XmlElement
+    public String getMoneda() {
+        return moneda;
+    }
+
+    public void setMoneda(String moneda) {
+        this.moneda = moneda;
+    }
+
+    @XmlElement
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    @XmlElement
+    public float getVenta() {
+        return venta;
+    }
+
+    public void setVenta(float venta) {
+        this.venta = venta;
+    }
+
+    @XmlElement
+    public float getCompra() {
+        return compra;
+    }
+
+    public void setCompra(float compra) {
+        this.compra = compra;
+    }
+}
